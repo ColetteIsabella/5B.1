@@ -1,0 +1,12 @@
+<h1><%= @person.name %></h1>
+
+ <p><strong>Phone number:</strong> <%= @person.phone %></p>
+ <% if @address %>
+   <p><strong>Address:</strong> <%= @address.street_address %></p>
+   <p><strong>City:</strong> <%= @address.city %></p>
+   <p><strong>State:</strong> <%= @address.state %></p>
+   <p><strong>Zip code:</strong> <%= @address.zip %></p>
+ <% end %>
+<%= link_to "New Person", new_person_path %>
+<%= link_to "Update", edit_person_path %>
+

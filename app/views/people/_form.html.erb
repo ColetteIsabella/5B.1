@@ -1,0 +1,43 @@
+<%= form_for(@person) do |f| %>
+<fieldset>
+  <legend>Person</legend>
+  <div>
+    <%= f.label :first_name %>
+    <%= f.text_field :first_name %>
+  </div>
+
+  <div>
+    <%= f.label :last_name %>
+    <%= f.text_field :last_name %>
+  </div>
+
+  <div>
+    <%= f.label :phone %>
+    <%= f.text_field :phone %>
+  </div>
+</fieldset>
+<fieldset>
+  <legend>Address</legend>
+  <div>
+    <%= f.fields_for :address do |g| %>
+      <div>
+        <%= g.label :street_address %>
+        <%= g.text_field :street_address %>
+      </div>
+      <div>
+        <%= g.label :city %>
+        <%= g.text_field :city %>
+      </div>
+      <div>
+        <%= g.label :state %>
+        <%= g.text_field :state %>
+      </div>
+      <div>
+        <%= g.label :zip %>
+        <%= g.text_field :zip %>
+      </div>
+</fieldset>
+<% end %>
+<%= f.submit %>
+
+<% end %>

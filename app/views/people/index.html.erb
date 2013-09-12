@@ -1,0 +1,37 @@
+<h1>Humans of Earth</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>First Name</th>
+      <th>Last Name</th>
+      <th>Phone Number</th>
+      <th>Address</th>
+    </tr>
+  </thead>
+  <tbody>
+  <% @people.each do |person| %>
+    <tr>
+      <td><%= person.first_name %></td>
+      <td><%= person.last_name %></td>
+      <td><%= person.phone %></td>
+      <td>
+        <% if person.address.nil? %>
+        No Address Entered
+        <% else %>
+        <%= person.address.city %>
+        <% end %>
+      </td>
+      <td>
+        <%= link_to "Show", person_path(person) %> |
+        <%= link_to "Update", edit_person_path(person) %> |
+        <%= link_to "Delete", person, method: :delete,
+                    confirm: "For realsies?" %>
+      </td>
+    </tr>
+  <% end %>
+</tbody>
+</table>
+
+<%= link_to "New Person", new_person_path %>
+
